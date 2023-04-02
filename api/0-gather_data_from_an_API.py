@@ -6,12 +6,12 @@ from sys import argv
 
 if __name__ == "__main__":
     user_id = argv[1]
-    url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
-    user = requests.get(url).json()
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
+    user = requests.get(user_url).json()
 
-    url = ('https://jsonplaceholder.typicode.com/todos?userId={}'
-            .format(user_id))
-    todos = requests.get(url).json()
+    todos_url = ('https://jsonplaceholder.typicode.com/users/{}/todos'
+                 .format(user_id))
+    todos = requests.get(todos_url).json()
 
     completed_tasks = [task.get('title') for task in todos
                        if task.get('completed') is True]
