@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Shebang"""
-import requests
 import json
+import requests
 from sys import argv
 
 
